@@ -1,7 +1,7 @@
 streamlit
 prophet
 statsmodels
-plotly
+plotly==5.18.0
 scikit-learn
 pandas
 numpy
