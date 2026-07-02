@@ -50,6 +50,8 @@ with st.sidebar:
     store_map = {f"Store {str(s).zfill(2)}": s for s in store_nums}
     store_labels = ["All Stores"] + list(store_map.keys())
     selected_store = st.selectbox("Select Store", store_labels, key="store_select")
+    model_choice = st.radio("Forecast Model", ["Both", "Prophet", "SARIMA"], key="model_select")
+
 
 # ── Filter ─────────────────────────────────────────────────────────────────
 if selected_store == "All Stores":
