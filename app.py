@@ -142,10 +142,15 @@ elif page == "Forecast":
             x=fc['Date'], y=fc['SARIMA_Forecast'],
             name='SARIMA', line=dict(color='#2ec4b6', dash='dash'),
             mode='lines+markers', marker=dict(size=5)))
-
-    fig.add_vline(x=str(weekly['Date'].iloc[-13]), line_dash="dot",
-                  line_color="#e63946", annotation_text="Train / Test Split",
-                  annotation_font_color="#e63946")
+    split_date = str(weekly['Date'].iloc[-13])
+    fig.add_shape(type="line",
+    x0=split_date, x1=split_date, y0=0, y1=1,
+    xref="x", yref="paper",
+    line=dict(color="#e63946", dash="dot", width=2))
+    fig.add_annotation(x=split_date, y=1, xref="x", yref="paper",
+    text="Train / Test Split", showarrow=False,
+    font=dict(color="#e63946"), yanchor="bottom")
+    
     fig.update_layout(
         template="plotly_dark", height=450,
         paper_bgcolor="#0B1320", plot_bgcolor="#0B1320",
