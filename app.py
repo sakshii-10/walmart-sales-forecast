@@ -50,7 +50,6 @@ with st.sidebar:
     store_map = {f"Store {str(s).zfill(2)}": s for s in store_nums}
     store_labels = ["All Stores"] + list(store_map.keys())
     selected_store = st.selectbox("Select Store", store_labels, key="store_select")
-    model_choice = st.radio("Forecast Model", ["Both", "Prophet", "SARIMA"], key="model_select")
 
 # ── Filter ─────────────────────────────────────────────────────────────────
 if selected_store == "All Stores":
@@ -142,7 +141,7 @@ elif page == "Forecast":
             name='SARIMA', line=dict(color='#2ec4b6', dash='dash'),
             mode='lines+markers', marker=dict(size=5)))
 
-    fig.add_vline(x=weekly['Date'].iloc[-13], line_dash="dot",
+    fig.add_vline(x=str(weekly['Date'].iloc[-13]), line_dash="dot",
                   line_color="#e63946", annotation_text="Train / Test Split",
                   annotation_font_color="#e63946")
     fig.update_layout(
