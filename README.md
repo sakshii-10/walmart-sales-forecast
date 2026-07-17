@@ -87,7 +87,7 @@ python -m streamlit run app.py
 ## 📊 Power BI Dashboard
 
 Built as a companion to the Streamlit app — targeting non-technical stakeholders who need forecast insights without code.
-```
+
 
 ---
 
